@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v1
       with:
         registry: https://yoonaohacr.azurecr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_79f3a14a48ce4105a2602676270abfd6 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_9e55fda9be794c4188b1daad1363b264 }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_0c132c0ff51c42c39785d621f3faeea7 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_0845485411204b12a2390ca147ee846a }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: yoonaohacr.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_79f3a14a48ce4105a2602676270abfd6 }}/samples/nginx:${{ github.sha }}
+        tags: yoonaohacr.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_0c132c0ff51c42c39785d621f3faeea7 }}/samples/nginx:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'yo-webapp-lin-container'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_1f0f0bb9b0814d258451f7b16a7b6b3e }}
-        images: 'yoonaohacr.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_79f3a14a48ce4105a2602676270abfd6 }}/samples/nginx:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_6e2f2e41c47043109f4afd891c2e725b }}
+        images: 'yoonaohacr.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_0c132c0ff51c42c39785d621f3faeea7 }}/samples/nginx:${{ github.sha }}'
