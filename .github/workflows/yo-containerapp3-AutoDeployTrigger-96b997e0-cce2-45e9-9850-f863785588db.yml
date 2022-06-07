@@ -55,6 +55,6 @@ jobs:
         uses: azure/CLI@v1
         with:
           inlineScript: |
-            az config set extension.use_dynamic_install=yes_without_prompt
-            az containerapp registry set -n yo-containerapp3 -g test-rg --server yoonaohacr.azurecr.io --username  ${{ secrets.YOCONTAINERAPP3_REGISTRY_USERNAME }} --password ${{ secrets.YOCONTAINERAPP3_REGISTRY_PASSWORD }}
-            az containerapp update -n yo-containerapp3 -g test-rg --image yoonaohacr.azurecr.io/yo-containerapp3:${{ github.sha }}
+            az config set extension.use_dynamic_install=yes_without_prompt --debug
+            az containerapp registry set -n yo-containerapp3 -g test-rg --server yoonaohacr.azurecr.io --username  ${{ secrets.YOCONTAINERAPP3_REGISTRY_USERNAME }} --password ${{ secrets.YOCONTAINERAPP3_REGISTRY_PASSWORD }} --debug 
+            az containerapp update -n yo-containerapp3 -g test-rg --image yoonaohacr.azurecr.io/yo-containerapp3:${{ github.sha }} --debug
