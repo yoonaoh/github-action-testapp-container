@@ -28,7 +28,7 @@ jobs:
       - name: Build and Push container to registry
         run: |
           docker build -t yoonaohacr.azurecr.io/test-win-container:${{ github.sha }} .
-          docker push ${{ secrets.REGISTRY_NAME }}/${{ secrets.IMAGE_NAME }}:${{ github.sha }}
+          docker push yoonaohacr.azurecr.io/test-win-container:${{ github.sha }}
       
       - name: Login to Azure
         uses: azure/login@v2
