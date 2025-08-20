@@ -33,7 +33,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: yoonaohacr.azurecr.io/${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_369D2E67117C4EAE945126A046EB6A4E }}/nonsidecartest:${{ github.sha }}
+          tags: yoonaohacr.azurecr.io/${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_369D2E67117C4EAE945126A046EB6A4E }}/Nonsidecartest:${{ github.sha }}
           file: ./Dockerfile
 
   deploy:
@@ -61,4 +61,5 @@ jobs:
           app-name: 'yo-webapp-nonsidecar-linux-container'
           slot-name: 'Production'
           images: 'yoonaohacr.azurecr.io/${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_369D2E67117C4EAE945126A046EB6A4E }}/nonsidecartest:${{ github.sha }}'
+
           
